@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+<f:view>
+<h:head><title>SetAvailability</title></h:head>
+    <h:body style="height: 450px; background-color: #E4E4E4 ">
+    	<h3>Set Availability</h3>
+        <h:form style="height: 100px; ">
+			
+			<p>List of houses:<h:selectOneMenu style="width: 100px; " value="#{setAval.house}"
+			converter="omnifaces.SelectItemsConverter">
+				 <f:selectItems value="#{setAval.ruralHouse}" />
+		 	</h:selectOneMenu></p><br />
+			
+			<p:calendar value="#{setAval.firtDay}" mode="inline" navigator="true" pages="1"/><br />
+			<p:calendar value="#{setAval.lastDay}" mode="inline" navigator="true" pages="1"/><br />
+				
+			<p>Price:<h:inputText style="height: 21px; " value="#{setAval.price}"></h:inputText></p>
+			
+			<h:commandButton value="Accept" action="#{setAval.crearOferta()}"></h:commandButton>
+			<h:button value="Close" outcome="act7"></h:button>
+		</h:form>
+    </h:body>
+</f:view>    
+</html>

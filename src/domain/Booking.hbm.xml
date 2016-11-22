@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-dic-2015 16:03:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="domain.Booking" table="BOOKING" >
+        <id name="bookingNumber" type="int" access="field" >
+            <column name="BOOKINGNUMBER" />
+            <generator class="increment" />
+        </id>
+        <property name="isPaid" type="java.lang.String" access="field">
+            <column name="ISPAID" />
+        </property>
+        <property name="bookingDate" type="java.util.Date">
+            <column name="BOOKINGDATE" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <one-to-one name="offer" class="domain.Offer"></one-to-one>
+    </class>
+</hibernate-mapping>

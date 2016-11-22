@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-dic-2015 16:03:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="domain.Owner" table="OWNER">
+        <id name="login" type="java.lang.String">
+            <column name="LOGIN" />
+            <generator class="assigned" />
+        </id>
+        <property name="bankAccount" type="java.lang.String">
+            <column name="BANKACCOUNT" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <set name="ruralHouses" table="RURALHOUSE" inverse="false" lazy="false" access="field">
+            <key>
+                <column name="OWNER" />
+            </key>
+            <one-to-many class="domain.RuralHouse" />
+        </set>
+    </class>
+</hibernate-mapping>

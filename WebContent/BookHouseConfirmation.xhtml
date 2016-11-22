@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
+<f:view>
+<h:head><title>BookRuralHouse</title></h:head>
+    <h:body style="height: 450px; background-color: #E4E4E4 ">
+    	<h3>Book Rural House Confirmation</h3>
+        <h:form style="height: 100px; ">
+
+
+			Owner bank account number: <h:outputText value="#{BookBean.obtenerCuenta()}"></h:outputText><br /><br />
+			
+			Booking number: <h:outputText value="#{BookBean.bookNumber}"></h:outputText><br /><br />
+			
+			You must deposit 20% of the total ammount of a book in the next three days.<br /><br />
+			
+			Total: <h:outputText value="#{BookBean.precio}"></h:outputText><br /><br />
+			
+			Deposit ammount: <h:outputText value="#{BookBean.obtenerDeposito()}"></h:outputText><br /><br />
+			
+
+			<h:button value="Accept" outcome="act9"></h:button>
+		</h:form>
+    </h:body>
+</f:view>    
+</html>

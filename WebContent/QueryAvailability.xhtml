@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:o="http://omnifaces.org/ui"
+    xmlns:of="http://omnifaces.org/functions">
+<f:view>
+<h:head><title>QueryAvailability</title></h:head>
+    <h:body style="height: 450px; background-color: #E4E4E4 ">
+    	<h3>Query Availability</h3>
+        <h:form style="height: 100px; ">
+			
+			<h4>Rural house code:<h:selectOneMenu style="width: 100px; " value="#{QueryAvailability.ruralHouse}"
+			converter="omnifaces.SelectItemsConverter">
+				 <f:selectItems  value="#{QueryAvailability.ruralHouses}" />
+		 	</h:selectOneMenu></h4><br />
+			
+
+			<p:calendar value="#{QueryAvailability.date}" mode="inline" navigator="true" pages="1"/>
+
+
+			<h4>Number of nights:<h:inputText style="height: 21px; "  value="#{QueryAvailability.noches}">
+			<f:validateLongRange minimum="1" maximum="31" /></h:inputText><br /></h4>
+			
+						
+			<h:dataTable rendered="true"  value="#{QueryAvailability.ofertas}"  var="of">
+    			<h:column>
+    				<f:facet name="header">Offer</f:facet>
+    				<h:outputText value="#{of.offerNumber}"/>
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">RuralHouse</f:facet>
+    				<h:outputText value="#{of.ruralHouse}"/>
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">First Day</f:facet>
+    				<h:outputText value="#{of.firstDay}"/>
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Last Day</f:facet>
+    				<h:outputText value="#{of.lastDay}"/>
+    			</h:column>
+    			
+    			<h:column>
+    				<f:facet name="header">Price</f:facet>
+    				<h:outputText value="#{of.price}"/>
+    			</h:column>
+    		
+    		</h:dataTable>	
+			
+			<h:commandButton value="Accept"></h:commandButton>
+			<h:button outcome="act6" value="Cancel"></h:button>
+		</h:form>
+    </h:body>
+</f:view>    
+</html>
